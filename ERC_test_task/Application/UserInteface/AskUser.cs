@@ -11,7 +11,7 @@ namespace ERC_test_task.Application.UserInteface
 
         internal static string DateTime()
         {
-            ValidateFunc validateDateTime = ValidateUserInputs.ValidateDateTime;
+            ValidateFunc validateDateTime = ValidateUserInputs.DateTime;
             string userInput = _askUser(TextForUserInputs.DateTime, validateDateTime);
 
             return userInput;
@@ -19,24 +19,24 @@ namespace ERC_test_task.Application.UserInteface
 
         internal static int HowManyLodgers()
         {
-            ValidateFunc validateHowManyLodger = ValidateUserInputs.ValidateHowManyLodger;
+            ValidateFunc validateHowManyLodger = ValidateUserInputs.HowManyLodger;
             string userInput = _askUser(TextForUserInputs.HowManyLodgers, validateHowManyLodger);
 
             return int.Parse(userInput); // На этом этапе здесь могут быть только цифры.
         }
 
         #region ===CWS===
-        internal static bool IsHaveColdWaterSupplyCounter()
+        internal static bool IsHaveCWSCounter()
         {
-            ValidateFunc validateUserIsHaveCWScounter = ValidateUserInputs.ValidateUserTwoOptions;
+            ValidateFunc validateUserIsHaveCWScounter = ValidateUserInputs.TwoOptions;
             string userInput = _askUser(TextForUserInputs.IsHaveCWSCounter, validateUserIsHaveCWScounter);
 
             return userInput == yesAnswer;
         }
 
-        internal static double ColdWaterSupplyCounterData()
+        internal static double CWSCounterData()
         {
-            ValidateFunc validateUserCWSCounterData = ValidateUserInputs.ValidateDoubleInput;
+            ValidateFunc validateUserCWSCounterData = ValidateUserInputs.DoubleInput;
             string userInput = _askUser(TextForUserInputs.CWSCounterData, validateUserCWSCounterData);
 
             return double.Parse(userInput); // На этом этапе здесь может быть только double.
@@ -44,17 +44,17 @@ namespace ERC_test_task.Application.UserInteface
         #endregion
 
         #region ===HWS===
-        internal static bool IsHaveHotWaterSupplyCounter()
+        internal static bool IsHaveHWSCounter()
         {
-            ValidateFunc validateUserIsHaveHWScounter = ValidateUserInputs.ValidateUserTwoOptions;
+            ValidateFunc validateUserIsHaveHWScounter = ValidateUserInputs.TwoOptions;
             string userInput = _askUser(TextForUserInputs.IsHaveHWSCounter, validateUserIsHaveHWScounter);
 
             return userInput == yesAnswer;
         }
 
-        internal static double HotWaterSupplyCounterData()
+        internal static double HWSCounterData()
         {
-            ValidateFunc validateUserHWSCounterData = ValidateUserInputs.ValidateDoubleInput;
+            ValidateFunc validateUserHWSCounterData = ValidateUserInputs.DoubleInput;
             string userInput = _askUser(TextForUserInputs.HWSCounterData, validateUserHWSCounterData);
 
             return double.Parse(userInput); // На этом этапе здесь может быть только double.
@@ -62,25 +62,25 @@ namespace ERC_test_task.Application.UserInteface
         #endregion
         #region ===ES===
 
-        internal static bool IsHaveElectricitySupplyCounter()
+        internal static bool IsHaveESCounter()
         {
-            ValidateFunc validateUserIsHaveEScounter = ValidateUserInputs.ValidateUserTwoOptions;
+            ValidateFunc validateUserIsHaveEScounter = ValidateUserInputs.TwoOptions;
             string userInput = _askUser(TextForUserInputs.IsHaveElectoSupplyCounter, validateUserIsHaveEScounter);
 
             return userInput == yesAnswer;
         }
 
-        internal static double NightElectricitySupplyCounterData()
+        internal static double NightESCounterData()
         {
-            ValidateFunc validateUserESCounterData = ValidateUserInputs.ValidateDoubleInput;
+            ValidateFunc validateUserESCounterData = ValidateUserInputs.DoubleInput;
             string userInput = _askUser(TextForUserInputs.ElectoSupplyNightCounterData, validateUserESCounterData);
 
             return double.Parse(userInput); // На этом этапе здесь может быть только double.
         }
 
-        internal static double DaytElectricitySupplyCounterData()
+        internal static double DaytESCounterData()
         {
-            ValidateFunc validateUserESCounterData = ValidateUserInputs.ValidateDoubleInput;
+            ValidateFunc validateUserESCounterData = ValidateUserInputs.DoubleInput;
             string userInput = _askUser(TextForUserInputs.ElectoSupplyDayCounterData, validateUserESCounterData);
 
             return double.Parse(userInput); // На этом этапе здесь может быть только double.
@@ -103,7 +103,7 @@ namespace ERC_test_task.Application.UserInteface
 
                 isValidInput = validateFunc(userInput);
 
-            } while (!isValidInput);
+            } while (!isValidInput); // Цикл будет продолжаться пока юзер не введет валидные данные.
 
 
             return userInput;

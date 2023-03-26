@@ -27,6 +27,7 @@ namespace ERC_test_task.Application
         }
 
         internal static void SaveData(UserInputs userData, PaymentSum paymentSum) => DbInteract.SaveData(userData, paymentSum);
+
         #region===DateTime===
         internal static bool TryGetLastDtimeFromDB(out string dateTime)
         {
@@ -34,9 +35,8 @@ namespace ERC_test_task.Application
 
             if (string.IsNullOrEmpty(dateTime))
                 return false;
-
-            dateTime = DateTimeIncriment(dateTime);
-            return true;
+            else
+                return true;
         }
 
         internal static int SaveNewDateTime_andGetId(string dateTime)
@@ -73,7 +73,7 @@ namespace ERC_test_task.Application
             TariffsTable_Fields CWS_Tariff = DbInteract.GetRow_FromTariffsTable_byServisName(DbSettings.CWS_defloatName);
 
             if (userData.UserIsHaveCWSCounter)
-                CalcPaymentSum_For_CWSCounter(userData.ColdWaterSupplyData, ref paymentSum, CWS_Tariff);
+                CalcPaymentSum_For_CWSCounter(userData.CWSCounterData, ref paymentSum, CWS_Tariff);
             else
                 CalcPaymentSum_For_CWSNorm(userData.NumberOfLodgers, ref paymentSum, CWS_Tariff);
         }
@@ -119,7 +119,7 @@ namespace ERC_test_task.Application
             TariffsTable_Fields HWSHeat_Tariff = DbInteract.GetRow_FromTariffsTable_byServisName(DbSettings.HWSHeat_defloatName);
 
             if (userData.UserIsHaveHWSCounter)
-                CalcPaymentSum_For_HWSCounter(userData.HotWaterSupplyData, ref paymentSum, HWS_Tariff, HWSWater_Tariff, HWSHeat_Tariff);
+                CalcPaymentSum_For_HWSCounter(userData.HWSCounterData, ref paymentSum, HWS_Tariff, HWSWater_Tariff, HWSHeat_Tariff);
             else
                 CalcPaymentSum_For_HWSNorm(userData.NumberOfLodgers, ref paymentSum, HWS_Tariff, HWSWater_Tariff, HWSHeat_Tariff);
         }
@@ -181,7 +181,7 @@ namespace ERC_test_task.Application
             TariffsTable_Fields ESNight_Tariff = DbInteract.GetRow_FromTariffsTable_byServisName(DbSettings.ESNight_defloatName);
 
             if (userData.UserIsHaveESCounter)
-                CalcPaymentSum_For_ESCounter(userData.NightElectricitySupplyData, userData.DayElectricitySupplyData, ref paymentSum, ESDay_Tariff, ESNight_Tariff);
+                CalcPaymentSum_For_ESCounter(userData.NightESCounterData, userData.DayESCounterData, ref paymentSum, ESDay_Tariff, ESNight_Tariff);
             else
                 CalcPaymentSum_For_ESNorm(userData.NumberOfLodgers, ref paymentSum, ES_Tariff);
         }

@@ -10,7 +10,7 @@ namespace ERC_test_task.Application.UserInteface
         private static readonly int AcceptCharsCountInYear = 4;
 
 
-        internal static bool ValidateDateTime(string userInput)
+        internal static bool DateTime(string userInput)
         {
             // Проверка на пустую строку или Null.
             if (string.IsNullOrEmpty(userInput))
@@ -33,7 +33,7 @@ namespace ERC_test_task.Application.UserInteface
             return mountIsValid && yearIsValid;
         }
 
-        internal static bool ValidateHowManyLodger(string userInput)
+        internal static bool HowManyLodger(string userInput)
         {
             // Проверка на то что инпут число и что оно больше нуля.
             int IntegerResult;
@@ -48,7 +48,7 @@ namespace ERC_test_task.Application.UserInteface
             return false;
         }
 
-        internal static bool ValidateUserTwoOptions(string userInput)
+        internal static bool TwoOptions(string userInput)
         {
             bool success = int.TryParse(userInput, out int parseResult);
             if (success)
@@ -59,7 +59,7 @@ namespace ERC_test_task.Application.UserInteface
             return false;
         }
 
-        internal static bool ValidateDoubleInput(string userInput)
+        internal static bool DoubleInput(string userInput)
         {
             return double.TryParse(userInput, out double _);
         }

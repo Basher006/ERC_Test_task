@@ -11,10 +11,10 @@ namespace ERC_test_task.Application.UserInteface
         public bool UserIsHaveHWSCounter;
         public bool UserIsHaveESCounter;
 
-        public double ColdWaterSupplyData;
-        public double HotWaterSupplyData;
-        public double NightElectricitySupplyData;
-        public double DayElectricitySupplyData;
+        public double CWSCounterData;
+        public double HWSCounterData;
+        public double NightESCounterData;
+        public double DayESCounterData;
         public void Clear()
         {
             DateTime = "";
@@ -22,10 +22,10 @@ namespace ERC_test_task.Application.UserInteface
             UserIsHaveCWSCounter = false;
             UserIsHaveHWSCounter = false;
             UserIsHaveESCounter = false;
-            ColdWaterSupplyData = 0;
-            HotWaterSupplyData = 0;
-            NightElectricitySupplyData = 0;
-            DayElectricitySupplyData = 0;
+            CWSCounterData = 0;
+            HWSCounterData = 0;
+            NightESCounterData = 0;
+            DayESCounterData = 0;
         }
     }
 }

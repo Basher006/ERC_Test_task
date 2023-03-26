@@ -183,10 +183,10 @@ namespace ERC_test_task.Application.Sqlite3
                     $") VALUES " +
                     $"({dateTime_id}, " +
                     $"{userData.NumberOfLodgers}, " +
-                    $"{userData.ColdWaterSupplyData.ToString().Replace(',', '.')}, " +
-                    $"{userData.HotWaterSupplyData.ToString().Replace(',', '.')}, " +
-                    $"{userData.DayElectricitySupplyData.ToString().Replace(',', '.')}, " +
-                    $"{userData.NightElectricitySupplyData.ToString().Replace(',', '.')})";
+                    $"{userData.CWSCounterData.ToString().Replace(',', '.')}, " +
+                    $"{userData.HWSCounterData.ToString().Replace(',', '.')}, " +
+                    $"{userData.DayESCounterData.ToString().Replace(',', '.')}, " +
+                    $"{userData.NightESCounterData.ToString().Replace(',', '.')})";
                 ExecuteCommand(connection, commandText);
             }
         }

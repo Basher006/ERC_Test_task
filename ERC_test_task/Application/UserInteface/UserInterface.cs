@@ -23,19 +23,19 @@ namespace ERC_test_task.Application.UserInteface
 
                 userInputs.NumberOfLodgers = AskUser.HowManyLodgers();
 
-                userInputs.UserIsHaveCWSCounter = AskUser.IsHaveColdWaterSupplyCounter();
+                userInputs.UserIsHaveCWSCounter = AskUser.IsHaveCWSCounter();
                 if (userInputs.UserIsHaveCWSCounter)
-                    userInputs.ColdWaterSupplyData = AskUser.ColdWaterSupplyCounterData();
+                    userInputs.CWSCounterData = AskUser.CWSCounterData();
 
-                userInputs.UserIsHaveHWSCounter = AskUser.IsHaveHotWaterSupplyCounter();
+                userInputs.UserIsHaveHWSCounter = AskUser.IsHaveHWSCounter();
                 if (userInputs.UserIsHaveHWSCounter)
-                    userInputs.HotWaterSupplyData = AskUser.HotWaterSupplyCounterData();
+                    userInputs.HWSCounterData = AskUser.HWSCounterData();
 
-                userInputs.UserIsHaveESCounter = AskUser.IsHaveElectricitySupplyCounter();
+                userInputs.UserIsHaveESCounter = AskUser.IsHaveESCounter();
                 if (userInputs.UserIsHaveESCounter)
                 {
-                    userInputs.NightElectricitySupplyData = AskUser.NightElectricitySupplyCounterData();
-                    userInputs.DayElectricitySupplyData = AskUser.DaytElectricitySupplyCounterData();
+                    userInputs.NightESCounterData = AskUser.NightESCounterData();
+                    userInputs.DayESCounterData = AskUser.DaytESCounterData();
                 }
 
                 paymentResult = Core.CalcPaymentSum(userInputs);
@@ -48,8 +48,10 @@ namespace ERC_test_task.Application.UserInteface
 
         private static string GetDateTime()
         {
+            // Пробуем получить последную запись с датой из базы данных, если получилось увеличиваем ее на 1 месяц.
+            // Иначе спрашиваем пользователя.
             if (Core.TryGetLastDtimeFromDB(out string dateTime))
-                return dateTime;
+                return Core.DateTimeIncriment(dateTime);
             else
                 return AskUser.DateTime();
         }
