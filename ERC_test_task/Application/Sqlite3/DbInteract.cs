@@ -130,6 +130,7 @@ namespace ERC_test_task.Application.Sqlite3
 
             SavePaymentData(paymentSum, lastDTimeRow._id, lastUserDataRow._id);
         }
+
         internal static void SetNewDateTime(string dateTime)
         {
             using (var connection = new SqliteConnection($"Data Source={dbName}"))
@@ -164,7 +165,7 @@ namespace ERC_test_task.Application.Sqlite3
                     $"{paymentSum.Electricity_Night.ToString().Replace(',', '.')}, " +
                     $"{paymentSum.Electricity_Day.ToString().Replace(',', '.')}, " +
                     $"{paymentSum.Electricity_Sum.ToString().Replace(',', '.')}, " +
-                    $"{paymentSum.GetAllSum().ToString().Replace(',', '.')})";
+                    $"{paymentSum.GetTotalSum().ToString().Replace(',', '.')})";
                 ExecuteCommand(connection, commandText);
             }
         }

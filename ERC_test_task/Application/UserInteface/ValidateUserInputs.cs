@@ -6,8 +6,8 @@ namespace ERC_test_task.Application.UserInteface
     {
         private static readonly char[] SplitcharsForDtime = { '.', ',' };
 
-        private static readonly int AcceptCharsCountInMounth = 2;
-        private static readonly int AcceptCharsCountInYear = 4;
+        private static readonly int[] monthValidRange = new int[] { 1, 12 };
+        private static readonly int[] yearValidRange = new int[] { 1970, System.DateTime.Now.Year };
 
 
         internal static bool DateTime(string userInput)
@@ -21,14 +21,25 @@ namespace ERC_test_task.Application.UserInteface
             if (UserInput_DotSplit.Length != 2)
                 return false;
 
-            // Проверка на колличество символов и являются ли они числом.
-            // TODO: добавить проверку на диапазон значений (1..12 - для месяца, ~1970..текущий год - для года)
-            string mount = UserInput_DotSplit[0];
+            // Проверка на то что месяц и год является числом
+            // и проверка на диапазон значений (1..12 - для месяца, ~1970..текущий год - для года)
+            bool mountIsValid = false;
+            bool yearIsValid = false;
+
+            string month = UserInput_DotSplit[0];
             string year = UserInput_DotSplit[1];
 
-            bool mountIsValid = (mount.Length == AcceptCharsCountInMounth) && IsInteger(mount);
-            bool yearIsValid = (year.Length == AcceptCharsCountInYear) && IsInteger(year);
+            if (int.TryParse(month, out int month_i))
+            {
+                if (month_i >= monthValidRange[0] && month_i <= monthValidRange[1])
+                    mountIsValid = true;
+            }
 
+            if (int.TryParse(year, out int year_i))
+            {
+                if (year_i >= yearValidRange[0] && year_i <= yearValidRange[1])
+                    yearIsValid = true;
+            }
 
             return mountIsValid && yearIsValid;
         }

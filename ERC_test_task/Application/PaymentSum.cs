@@ -12,11 +12,12 @@ namespace ERC_test_task.Application.UserInteface
         public double Electricity_Day;
         public double Electricity_Sum;
 
-        public double GetAllSum()
+        public double GetTotalSum()
         {
             double _electricity_Sum = Electricity_Night != 0 && Electricity_Day != 0 ? Electricity_Night + Electricity_Day : Electricity_Sum;
             return ColdWaterSupply + HotWaterSupply + HotWaterSupply_Water + HotWaterSupply_Heat + _electricity_Sum;
         }
+
         public void Clear()
         {
             ColdWaterSupply = 0;

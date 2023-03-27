@@ -68,12 +68,11 @@ namespace ERC_test_task.Application.UserInteface
                 $"\n\tЭЭ ночь.................{Math.Round(paymentResult.Electricity_Night, 2)} руб." +
                 $"\n\tЭЭ сумма................{Math.Round(paymentResult.Electricity_Sum, 2)} руб." +
                 $"\n" +
-                $"\n\tСумма...................{Math.Round(paymentResult.GetAllSum(), 2)} руб.";
+                $"\n\tСумма...................{Math.Round(paymentResult.GetTotalSum(), 2)} руб.";
 
             Console.WriteLine(printTxt);
         }
         
-
         private static void PrintDateTime(string dateTime)
         {
             Console.WriteLine($"\n\n=== Новый расчет за месяц: {dateTime} ===");

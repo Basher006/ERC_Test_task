@@ -6,8 +6,6 @@ namespace ERC_test_task
     {
         static void Main(string[] args)
         {
-            // TODO:
-            // проверка на правильный ввод месяца и года
             UserInterface.MainLoop();
         }
     }

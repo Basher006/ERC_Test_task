@@ -10,6 +10,7 @@ namespace ERC_test_task.Sqlite3.DbTables
         public double StandartNorm;
         public string UnitName;
     }
+
     internal class TariffsTable : IDbTable
     {
         string IDbTable.TableName => "Tariffs";

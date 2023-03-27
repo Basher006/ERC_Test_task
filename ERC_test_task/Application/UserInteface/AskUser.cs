@@ -108,6 +108,7 @@ namespace ERC_test_task.Application.UserInteface
 
             return userInput;
         }
+
         private static string _askUser(string askText, ValidateFunc validateFunc)
         {
             string inputErrorText = TextForUserInputs.DefaultInputErrorText;

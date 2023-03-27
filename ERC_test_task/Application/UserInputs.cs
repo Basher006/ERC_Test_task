@@ -15,6 +15,7 @@ namespace ERC_test_task.Application.UserInteface
         public double HWSCounterData;
         public double NightESCounterData;
         public double DayESCounterData;
+
         public void Clear()
         {
             DateTime = "";
